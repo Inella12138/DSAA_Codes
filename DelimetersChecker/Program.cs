@@ -24,26 +24,27 @@ static bool IsPaired(char open, char close)
 
 bool CheckDelimeter(string input)
 {
-    Stack<char> open = new();
-    Queue<char> close = new();
+    Stack<char> open = new();//为左括号建立一个栈
+    Queue<char> close = new();//为右括号建立一个队列
     for (int i = 0; i < input.Length; i++)
     {
         if (IsOpenDelimeter(input[i]))
         { 
-            open.Push(input[i]);
+            open.Push(input[i]);//检测到左括号，压栈
         }
         if (IsCloseDelimeter(input[i]))
         {
-            close.Enqueue(input[i]);
+            close.Enqueue(input[i]);//检测到右括号，加入队列
         }
     }
-    if (open.Count != close.Count)
+    if (open.Count != close.Count)//数量不相等则一定不匹配
     {
         return false;
     }
     else
     {
         if (!IsPaired(open.Pop(), close.Dequeue()))
+            //为什么是用左括号退栈的值和右括号退出队列的值比较？
         {
             return false;
         }
