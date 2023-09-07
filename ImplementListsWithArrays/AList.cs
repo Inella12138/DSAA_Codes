@@ -96,7 +96,8 @@ namespace ImplementListsWithArrays
         }
 
         //GetAt(int index)
-        public string GetAt(int index)
+        public string? GetAt(int index)
+        //C# 8.0以上有非空返回的概念，string?允许返回null，C# 8.0以下不用写string?也可以正常返回null
         {
             if (index >= 0 && index <= numElements - 1)
             {
