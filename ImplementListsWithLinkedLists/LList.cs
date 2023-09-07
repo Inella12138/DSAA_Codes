@@ -27,22 +27,13 @@ namespace ImplementListsWithLinkedLists
 
         public Node? GetNodeAt(int index)
         {
-            Node? link = null;
+            Node? link = Head;
             if (index >= 0 && index <= numElements - 1)
-            {
-                if (index == 0)//index == 0，即返回首项，即Head
-                {
-                    return Head;
-                }
-                else
-                {
-                    link = Head;
+            {                                 
                     for (int i = 0; i < index; i++)//index == n，取n次Head.Next
                     {
                         link = link.Next;
-                    }
-                    return link;
-                }
+                    }                
             }
             return link;
         }
