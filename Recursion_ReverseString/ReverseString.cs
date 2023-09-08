@@ -19,9 +19,9 @@ namespace Recursion_ReverseString
                 return "";
             }
             Stack<char> chars = new Stack<char>();
-            for (int i = 0; i < str.Length; i++)
+            foreach (char ch in str)
             {
-                chars.Push(str[i]);
+                chars.Push(ch);
             }
             return (impl == "recursive") ? RReverse(chars) : IReverse(chars);
         }
