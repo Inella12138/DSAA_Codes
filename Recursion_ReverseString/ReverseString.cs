@@ -18,22 +18,27 @@ namespace Recursion_ReverseString
             {
                 return "";
             }
-            return (impl == "recursive") ? RReverse(str) : IReverse(str);
+            Stack<char> chars = new Stack<char>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                chars.Push(str[i]);
+            }
+            return (impl == "recursive") ? RReverse(chars) : IReverse(chars);
         }
 
 
-        private static string RReverse(string str)
+        private static string RReverse(Stack<char> stack)
         {
-            if (str == "") { return ""; }
-            return str.Substring(str.Length - 1, 1) + RReverse(str.Substring(0, str.Length - 1));
+            if (stack.Count == 0) { return ""; }
+            return stack.Pop() + RReverse(stack);
         }
 
-        private static string IReverse(string str)
+        private static string IReverse(Stack<char> stack)
         {
             string rstr = "";
-            for (int i = str.Length - 1; i >= 0; i--)
+            while (stack.Count() > 0) 
             {
-                rstr += str[i];
+                rstr += stack.Pop();
             }
             return rstr;
         }
