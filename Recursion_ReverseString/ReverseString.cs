@@ -22,13 +22,13 @@ namespace Recursion_ReverseString
         }
 
 
-        public static string RReverse(string str)
+        private static string RReverse(string str)
         {
             if (str == "") { return ""; }
             return str.Substring(str.Length - 1, 1) + RReverse(str.Substring(0, str.Length - 1));
         }
 
-        public static string IReverse(string str)
+        private static string IReverse(string str)
         {
             string rstr = "";
             for (int i = str.Length - 1; i >= 0; i--)
