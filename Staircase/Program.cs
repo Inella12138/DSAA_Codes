@@ -3,9 +3,15 @@ Console.WriteLine(PossibleChoices(n));
 
 static int PossibleChoices(int stairs)
 {
-    if (stairs == 0) { return 0; }
-    if (stairs == 1) { return 1; }
+    if (stairs <= 1) { return 1; }
     if (stairs == 2) { return 2; }
-    if (stairs == 3) { return 4; }
-    return PossibleChoices(stairs - 1) + PossibleChoices(stairs - 2) + PossibleChoices(stairs - 3);
+    int[] paths = new int[stairs + 1];
+    paths[0] = 1;
+    paths[1] = 1;
+    paths[2] = 2;
+    for (int i = 3; i <= stairs; i++)
+    {
+        paths[i] = paths[i - 1] + paths[i - 2] + paths[i - 3];
+    }
+    return paths[stairs];
 }

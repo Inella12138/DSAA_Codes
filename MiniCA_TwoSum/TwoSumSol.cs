@@ -14,6 +14,7 @@ namespace MiniCA_TwoSum
         {
             Dictionary<int, int> index = new Dictionary<int, int>();
             //Create a dictionary that stores the index of each number in nums[]
+
             for (int i = 0; i < nums.Length; i++)
             {
                 int adder = target - nums[i];   //find adder for each number in nums[]              
